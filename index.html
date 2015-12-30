@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html ng-app="zillow" lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bare - Start Bootstrap Template</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->    
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <script src="https://maps.google.com/maps/api/js?libraries=placeses,visualization,drawing,geometry,places"></script>
+	<script type="text/javascript" src="js/lib/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script src="js/lib/ng-map.js"></script>
+    </head>
+
+    <body>
+        <header><!-- top level navigation starts here -->
+            <!-- Navigation -->
+            <nav class="navbar navbar-default custom-dropdowns">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header"> 
+                    <!-- responsive menu button -->
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img src="images/logo.jpg">
+                        </a>
+                    </div><!-- end of the container -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <!-- Left hand side navigation -->
+                    <ul class="nav navbar-nav custom-dropdowns">
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buy <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <ul>
+                                        <li>
+                                            <h5>dropdown menu 1 </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>                                    
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rent <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <ul>
+                                        <li>
+                                            <h5>  dropdown menu 2 </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>                                    
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sell <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <ul>
+                                        <li>
+                                            <h5>  dropdown menu 3 </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>                                    
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mortgages <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <ul>
+                                        <li>
+                                            <h5>  dropdown menu 4 </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>                                    
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agent finder <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <ul>
+                                        <li>
+                                            <h5>  dropdown menu 5 </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>                                    
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Advice <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <ul>
+                                        <li>
+                                            <h5>  dropdown menu 6 </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>                                    
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home design <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <ul>
+                                        <li>
+                                            <h5>  dropdown menu 7 </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>                                    
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                                <div class="container">
+                                    <ul>
+                                        <li>
+                                            <h5>  dropdown menu 8 </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>
+                                         <li>
+                                            <h5>  Seattle homes for sale </h5>
+                                            <a href="#">Homes for sale</a>
+                                            <a href="#">Foreclosures</a>
+                                            <a href="#">For sale by owner</a>
+                                            <a href="#">Open houses-</a>
+                                        </li>                                    
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>  
+                    <!-- Left hand side navigation ends here -->
+
+                    <!-- right hand side navigation -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Sign in</a></li>
+                        <li class="spacer">or</li>
+                        <li><a href="#">Join</a></li>
+                        <li class="glyphyicon-alignment"><a href="#"><span class="glyphicon glyphicon-question-sign"></span></a></li>
+                    </ul>
+                    <!-- right hand side navigation ends here -->
+                </div><!-- /.navbar-collapse -->
+            </nav><!-- main nav -->
+        </header><!-- top level navigation ends  here -->
+
+
+
+        <!-- Second level navigation starts here -->
+        <div id="nav">
+            <div class="navbar navbar-default navbar-static fixy-navigation">
+                <div class="container"><!-- container ends here-->
+                  <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                    <!-- responsive menu icon -->
+                    <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="glyphicon glyphicon-bar"></span>
+                        <span class="glyphicon glyphicon-bar"></span>
+                        <span class="glyphicon glyphicon-bar"></span>
+                    </a>
+                    <!-- responsive menu icon ends here -->
+                    <!-- menu starts -->
+                    <div class="navbar-collapse collapse">
+                        <!-- left hand navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="contact-agent"><a href="#">Contact  agent</a></li>
+                            <li class="save-icon"><a href="#"> <span class="glyphicon glyphicon-heart-empty"></span>Save</a></li>
+                            <li><a href="#">Get updates</a></li>
+                            <li><a href="#">Share </a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">123</a></li>
+                                    <li><a href="#">asdasdasd action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- left hand navigation ends -->
+
+                        <!-- right hand navigation -->
+                        <ul class="nav pull-right navbar-nav custom-search">
+                            <li>
+                                <form class="navbar-form">
+                                    <div class="input-group ">
+                                        <input type="text" class="form-control" placeholder="This one is out of the Bootstrap examples...">
+                                        <span class="input-group-addon">
+                                            <a href="">
+                                                <i class="glyphicon glyphicon-search"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul><!-- right hand navigation ends -->
+                    </div><!-- menu ends -->        
+                </div><!-- container starts here-->
+            </div><!-- /.navbar -->
+        </div><!-- Second level navigation starts here -->
+
+        <!-- Page Content -->
+        <div class="container-fluid">
+            <div id="map"></div>
+            <div id="menu">
+                <!-- <h1>Header 1</h1> HTML ELEMENTS can be placed inside if required-->
+            </div>
+        <!-- /.container -->
+        </div>
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+
+
+
+	<div class="container" ng-controller="propertyController as propertyCtrl">
+
+		<div><!-- create-->
+
+			<!-- map to get location -->
+			<div >
+				Click on Map to change you location
+				<ng-map center="37.7699298, -122.4469157" zoom="4" on-click="propertyCtrl.addMarker()">
+					<marker ng-repeat="position in propertyCtrl.positions" 
+						position="{{position.lat}}, {{position.lng}}">
+					</marker>
+				</ng-map>
+			</div>
+
+
+			<br /> 
+			<br /> 
+			<form name="userForm" ng-submit="userForm.$valid && propertyCtrl.addProperty(propertyCtrl.property)" novalidate>
+				{{propertyCtrl.message}}
+				<fieldset class="form-group">
+					<input type="eamil" ng-model="propertyCtrl.property.createdBy.email" class="form-control" 
+						placeholder="Email" required/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input type="password" ng-model="propertyCtrl.property.createdBy.password" class="form-control" 
+					placeholder="Password" required/>
+				</fieldset>
+
+
+
+
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.address.street1" class="form-control" 
+						placeholder="Street"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.address.city" class="form-control" 
+					placeholder="City" required/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.address.state" class="form-control" 
+					placeholder="State" required/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.address.zipCode" class="form-control" 
+					placeholder="Zip Code" required/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.address.country" class="form-control" 
+					placeholder="Country"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.estimates.price" class="form-control"
+					placeholder="Estimated Price"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<textarea ng-model="propertyCtrl.property.description" class="form-control"
+					placeholder="Description"></textarea> 
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.lot.size" class="form-control"
+					placeholder="Lot Size"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.general.bedrooms" class="form-control"
+					placeholder="Bedrooms"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.general.rooms" class="form-control"
+					placeholder="Rooms"/>
+				</fieldset>
+
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.general.bathrooms" class="form-control"
+					placeholder="Bathrooms"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input type="hidden" ng-model="propertyCtrl.property.address.coordinates"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input type="submit" class="btn btn-default pull-right" value="Cancel" />
+					<input type="submit" class="btn btn-primary pull-right" style="margin-right: 10px;" value="Save" />
+				</fieldset>
+
+
+			</form>
+
+
+		</div><!-- create-->
+
+	</div>
+
+
+
+
+
+
+
+
+<!-- jQuery Version 1.11.1 -->
+<script src="js/lib/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/lib/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

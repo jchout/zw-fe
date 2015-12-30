@@ -1,0 +1,247 @@
+/*
+Written By Muneer khan
+*/
+html, body{
+  font-family: 'Open Sans', sans-serif;
+  -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.navbar-brand>img {
+    display: block;
+    min-height: 102px;
+}
+
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.open>a:focus, 
+.navbar-default .navbar-nav>.open>a:hover {
+  color: #000;
+  background: transparent;
+  font-size: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.caret {
+  border-top: 3px dashed;
+  border-top: 3px solid\9;
+  border-right: 3px solid transparent;
+  border-left: 3px solid transparent;
+}
+header .navbar-default{
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  z-index: 1;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.navbar-default .navbar-right.navbar-nav>li>a,
+.navbar-default .navbar-nav>li>a:hover
+{
+  color: #0074e4;
+}
+.navbar-default .navbar-right.navbar-nav>li>a
+{
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 13px;
+}
+.spacer{
+  margin: 15px 4px 0;
+  font-size: 14px;
+}
+.glyphyicon-alignment .glyphicon
+{
+  top: 4px;
+  margin-left: 10px;
+  color: rgb(119, 119, 119);
+  font-size: 16px;
+}
+.navbar-brand {
+  padding: 0px 15px;
+  margin-top: -1px;
+}
+.fixy-navigation
+{  
+  background: #e2effc;
+}
+.fixy-navigation .navbar-nav{
+  padding-left: 103px;
+}
+.fixy-navigation .navbar-nav li {
+      border-right: 1px solid #fff;
+}
+.fixy-navigation .navbar-nav li a,
+.fixy-navigation .navbar-nav li.dropdown.open a{
+  text-transform: uppercase;
+  color: #333;
+  background: transparent;
+  font-size: 13px;
+  font-weight: bold;
+}
+.save-icon .glyphicon{
+      margin-right: 3px;
+}
+
+.custom-search .form-control
+{
+  z-index: 0;
+  height: 34px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+
+  -webkit-box-shadow: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+
+    border-right: 0;
+}
+.custom-search .input-group:hover .form-control,
+.custom-search .input-group:hover .input-group-addon{
+      border-color: #66afe9;
+}
+.custom-search .input-group-addon{
+  background: #fff;
+
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+
+}
+.fixy-navigation .custom-search li{
+  border-right: 0;
+}
+.custom-search .input-group-addon .glyphicon
+{
+   color: #0074e4;
+      font-size: 15px;
+}
+.custom-dropdowns .dropdown-menu li 
+{
+  padding: 9px 20px;
+  border-right: 1px solid #ccc;
+}
+.custom-dropdowns .dropdown-menu li a
+{
+  color: #0074e4;
+  padding: 9px 10px 9px 0;
+  font-size: 13px;
+  display: block;
+  text-align: left;
+}
+.affix .fixy-navigation .navbar-nav li.contact-agent a
+{
+  color: #fff;
+      background: #0074e4;
+}
+.affix .fixy-navigation .navbar-nav{
+    padding-left: 0px; 
+}
+/* full page dropdowns */
+/* CSS used here will be applied after bootstrap.css */.nav { margin-bottom: 0; }
+.custom-dropdowns .nav > li.dropdown.open { position: static; }
+.custom-dropdowns .nav > li.dropdown.open .dropdown-menu {display:table; width: 100%; text-align: center; left:0; right:0; }
+.custom-dropdowns .dropdown-menu>li { display: table-cell; }
+.dropdown-menu ul{
+  padding-left: 125px;
+  display: table;
+  width: 100%;  
+}
+.dropdown-menu ul li{
+  display: table-cell;
+  list-style: none;
+}
+.dropdown-menu h5{
+  font-weight: bold;
+  text-align: left;
+}
+/* carousel */
+.carousel-inner{
+  height: 600px;
+  padding-bottom: 50px;
+}
+.carousel-inner img{ width: 100%; }
+
+
+/* bootstrap 3 fixing the navigation bar on scroll */
+.navbar-form input, .form-inline input {
+  width:auto;
+}
+header {
+  height:51px;
+}
+#nav.affix {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index:10;
+}
+#sidebar.affix-top {
+  position: static;
+}
+#sidebar.affix {
+  position: fixed;
+  top: 80px;
+}
+.details h1{
+  font-weight: 100;
+  margin: 10px 0;
+}
+.details p{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.facts ul{
+  padding-left: 40px;
+}
+
+.facts li a{
+      color: #0074e4;
+}
+.facts li{
+      line-height: 2;
+          font-size: 15px;
+    color: #333;
+  list-style: square;
+}
+.facts h3,
+.details h3{
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: bold;
+}
+.dot-red
+{
+    display: inline-block;
+    background: #c00;
+    border-radius: 50%;
+    content: "";
+    height: 10px;
+    width: 10px;
+    margin-right: 10px;
+}
+.price,
+.details-prices h3{
+  margin: 5px 0;
+}
+.details{
+  padding-top: 50px;
+}
+
+.ng-invalid.ng-dirty{
+  border-color: red;
+}    
+
+.ng-valid.ng-dirty{
+  border-color: green
+} 
