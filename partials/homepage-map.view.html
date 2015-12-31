@@ -2,16 +2,26 @@
 
     <!-- map to get location -->
     <div >
-      <ng-map center="37.7699298, -122.4469157" zoom="4" >
-        <marker id="marker-{{doc._id}}" on-click="showDetails(doc);" ng-repeat="doc in properties"
-          position="{{doc.address.lat}},{{doc.address.lng}}">
+      <ng-map center="37.7699298, -122.4469157" zoom="4" id="map">
+        <marker ng-repeat="record in properties"
+          position="{{record.address.lat}},{{record.address.lng}}" 
+          title="{{p.toString()}}"
+          on-click="map.showInfoWindow('bar-{{$idx}}')" >
         </marker>
-        <!-- <info-window id="info-window">
-           <div ng-non-bindable="">
-             id: hamza<br/>
-             <a href="#" ng-click="vm.clicked()">Click Here</a>
-           </div>
-         </info-window> -->
+
+
+        <info-window id="bar-{{$idx}}" ng-repeat="info in properties" >
+          <div ng-non-bindable>
+
+            <div id="siteNotice"></div>
+            <h1 id="firstHeading" class="firstHeading">zillow</h1>
+            <div id="bodyContent">
+              <p>{{info.address.street1}}</p>
+            </div>
+
+          </div>
+        </info-window>
+    
       </ng-map>
   </div><!-- create-->
 
