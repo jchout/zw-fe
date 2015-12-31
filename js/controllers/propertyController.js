@@ -13,7 +13,7 @@
 				'zipCode' : '',
 				'coordinates' : []
 			},
-			'createdBy': {} 
+			'createdBy': {}
 		};
 		scope.positions = [{lat:37.7699298,lng:-122.4469157}];
 		scope.property.address.coordinates = [37.7699298,-122.4469157];
@@ -30,8 +30,6 @@
 		scope.deleteMarkers = function() {
 			scope.positions = [];
 		};
-
-
 
 		scope.addProperty = function(property){
 	  		console.log(property);
@@ -59,7 +57,28 @@
 			});
 		};
 
+		scope.listProperties = function() {
+			$http({
+				method: 'GET',
+				url: '/api/properties',
+				dataType: "json",
+				data: property,
+				headers: {
+					"Content-Type": "application/json; charset=utf-8",
+					"Accept": "application/json"
+				}
+			}).then(function(response) {
+				if (!response.ok) {
+					 return alert('We cannot pull properties at the moment.');
+				}
 
+				var results = response.results;
+				$scope.properties = results;
+			}, function(error) {
+				console.log(error);
+				scope.message = 'Error! property not created';
+			});
+		};
 
 		$http({
 			method: 'GET',
