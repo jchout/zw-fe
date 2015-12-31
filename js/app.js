@@ -4,7 +4,7 @@
 
 	app.config(function($routeProvider){
 		$routeProvider.when('/',{
-			templateUrl: 'partials/create-property.html',
+			templateUrl: 'partials/homepage-map.view.html',
 			controller: "propertyController"
 		});
 

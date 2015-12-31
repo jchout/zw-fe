@@ -1,0 +1,12 @@
+<div class="container" ng-controller="propertyController as propertyCtrl" ng-init="listProperties()">
+
+    <!-- map to get location -->
+    <div>
+      <ng-map center="37.7699298, -122.4469157" zoom="4" on-click="propertyCtrl.addMarker()">
+        <marker ng-repeat="position in propertyCtrl.positions"
+          position="{{position.lat}}, {{position.lng}}">
+        </marker>
+      </ng-map>
+  </div><!-- create-->
+
+</div>

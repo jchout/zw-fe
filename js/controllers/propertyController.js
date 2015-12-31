@@ -80,6 +80,7 @@
 			});
 		};
 
+
 		$http({
 			method: 'GET',
 			url: 'http://52.29.132.129/api/users/3',
