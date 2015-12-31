@@ -15,6 +15,7 @@
 			},
 			'createdBy': {}
 		};
+		$scope.properties = [];
 		scope.positions = [{lat:37.7699298,lng:-122.4469157}];
 		scope.property.address.coordinates = [37.7699298,-122.4469157];
 
@@ -70,18 +71,30 @@
 				}
 			}).then(function(response) {
 				var body = response.data;
-				console.log(body);
 				if (!body.ok) {
 					 return alert('We cannot pull properties at the moment.');
 				}
 
 				var results = body.results;
-				$scope.properties = results
+				results = results.map(function (record) {
+					record.address.lat = "-25.363882";
+					record.address.lng = "131.044922";
+					// record.address.lat = record.address.coordinates[0];
+					// record.address.lng = record.address.coordinates[1];
+					return record;
+				});
+
+				console.log(results);
+				$scope.properties = angular.copy(results);
 			}, function(error) {
 				console.log(error);
 				scope.message = 'Error! property not created';
 			});
 		};
+
+		$scope.showDetails = function(property) {
+			console.log('Show>>>', property);
+		}
 
 
 		$http({
