@@ -1,8 +1,12 @@
 (function() {
 
 	var app = angular.module('property-module', ['ngMap']);
-	app.controller('propertyController', ['$http', '$scope',function($http, $scope){
-
+	app.controller('propertyController', ['$http', '$scope', 'NgMap',function($http, $scope, NgMap){
+		var vm = this;
+		NgMap.getMap().then(function(map) {
+	    console.log('map --> ', map);
+	    vm.map = map;
+	  });
 		var scope = this;
 		scope.property = {
 			'address' : {
@@ -16,6 +20,7 @@
 			'createdBy': {}
 		};
 		$scope.properties = [];
+		$scope._iw = {};
 		scope.positions = [{lat:37.7699298,lng:-122.4469157}];
 		scope.property.address.coordinates = [37.7699298,-122.4469157];
 
@@ -85,21 +90,8 @@
 					return record;
 				});
 
-				// console.log(results);
+				console.log(results);
 				$scope.properties = results;
-				// $scope.properties = [];
-				// var numMarkers = Math.floor(Math.random() * 4) + 4; //between 4 to 8 markers
-	      // for (i = 0; i < numMarkers; i++) {
-	      //   var lat = 43.6600000 + (Math.random() / 100);
-	      //   var lng = -79.4103000 + (Math.random() / 100);
-	      //   $scope.properties.push({
-				// 		address: {lat:lat, lng:lng}
-				// 	});
-	      // }
-				//
-				// console.log($scope);
-				// // $scope.apply();
-				// //           position="43.660122958358315,-79.40357554544204">
 
 			}, function(error) {
 				console.log(error);
@@ -107,8 +99,9 @@
 			});
 		};
 
-		$scope.showDetails = function(property) {
-			console.log('Show>>>', property);
+		$scope.showDetails = function(record) {
+			console.log('Show>>>', $scope._iw);
+			 vm.map.showInfoWindow('info-window', 'marker-' + record._id);
 		}
 
 

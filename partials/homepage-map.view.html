@@ -3,9 +3,15 @@
     <!-- map to get location -->
     <div >
       <ng-map center="37.7699298, -122.4469157" zoom="4" >
-        <marker ng-repeat="record in properties"
-          position="{{record.address.lat}},{{record.address.lng}}">
+        <marker id="marker-{{doc._id}}" on-click="showDetails(doc);" ng-repeat="doc in properties"
+          position="{{doc.address.lat}},{{doc.address.lng}}">
         </marker>
+        <!-- <info-window id="info-window">
+           <div ng-non-bindable="">
+             id: hamza<br/>
+             <a href="#" ng-click="vm.clicked()">Click Here</a>
+           </div>
+         </info-window> -->
       </ng-map>
   </div><!-- create-->
 
