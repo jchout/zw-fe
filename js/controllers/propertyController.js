@@ -77,15 +77,30 @@
 
 				var results = body.results;
 				results = results.map(function (record) {
-					record.address.lat = "-25.363882";
-					record.address.lng = "131.044922";
-					// record.address.lat = record.address.coordinates[0];
-					// record.address.lng = record.address.coordinates[1];
+					// record.address.lat = "-25.363882";
+					// record.address.lng = "131.044922";
+					console.log(record.address.coordinates);
+					record.address.lat = record.address.coordinates[0];
+					record.address.lng = record.address.coordinates[1];
 					return record;
 				});
 
-				console.log(results);
-				$scope.properties = angular.copy(results);
+				// console.log(results);
+				$scope.properties = results;
+				// $scope.properties = [];
+				// var numMarkers = Math.floor(Math.random() * 4) + 4; //between 4 to 8 markers
+	      // for (i = 0; i < numMarkers; i++) {
+	      //   var lat = 43.6600000 + (Math.random() / 100);
+	      //   var lng = -79.4103000 + (Math.random() / 100);
+	      //   $scope.properties.push({
+				// 		address: {lat:lat, lng:lng}
+				// 	});
+	      // }
+				//
+				// console.log($scope);
+				// // $scope.apply();
+				// //           position="43.660122958358315,-79.40357554544204">
+
 			}, function(error) {
 				console.log(error);
 				scope.message = 'Error! property not created';

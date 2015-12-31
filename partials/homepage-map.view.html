@@ -1,10 +1,10 @@
-<div class="container" ng-controller="propertyController as propertyCtrl" ng-init="listProperties()">
+<div class="container" ng-controller="propertyController" ng-init="listProperties()">
 
     <!-- map to get location -->
     <div >
       <ng-map center="37.7699298, -122.4469157" zoom="4" >
-        <marker ng-repeat="record in propertyCtrl.properties"
-          position="{{record.address.lat}}, {{record.address.lng}}">
+        <marker ng-repeat="record in properties"
+          position="{{record.address.lat}},{{record.address.lng}}">
         </marker>
       </ng-map>
   </div><!-- create-->
