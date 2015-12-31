@@ -1,0 +1,56 @@
+
+<!-- Page Content -->
+<section ng-controller="TabController as tab">
+    <div class="container">
+        <div id="map"></div>
+        <div id="menu">
+            <!-- <h1>Header 1</h1> HTML ELEMENTS can be placed inside if required-->
+
+
+            <ul class="nav nav-pills">
+                <li ng-class="{ active:tab.isSet(1) }">
+                    <a href="" ng-click="tab.setTab(1)">Add New User</a>
+                </li>
+                <li ng-class="{ active:tab.isSet(2) }" >
+                    <a href="" ng-click="tab.setTab(2)">View User By Id</a>
+                </li>
+                <li ng-class="{ active:tab.isSet(3) }">
+                    <a href="" ng-click="tab.setTab(3)">Update New User</a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div><!-- /.container -->
+    <br /> 
+    <br /> 
+
+
+    <!-- content container -->
+    <div class="container" ng-controller="UserController as UserCtrl" >
+
+        <!--  Create User Form -->
+        <div ng-show="tab.isSet(1)">
+            {{UserCtrl.message}}
+            <form name="userForm" ng-submit="userForm.$valid && UserCtrl.addUser(UserCtrl.user)" novalidate>
+                <h1>Create User</h1>
+                <user-create ></user-create>
+            </form>
+        </div>
+
+        <!-- User Details -->
+        <div ng-show="tab.isSet(2)">
+            <user-get></user-get>   
+        </div>
+
+        <!--  Update User Form -->
+        <div ng-show="tab.isSet(3)">
+            {{UserCtrl.message}}
+            <form name="userForm" ng-submit="userForm.$valid && UserCtrl.updateUser(UserCtrl.user)" novalidate>
+                <h1>Update User</h1>
+                <user-create ></user-create>
+            </form>
+        </div>
+
+    </div><!--content container-->
+</section>

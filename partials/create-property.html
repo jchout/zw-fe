@@ -1,0 +1,105 @@
+	<div class="container" ng-controller="propertyController as propertyCtrl">
+
+		<div><!-- create-->
+
+			<!-- map to get location -->
+			<div >
+				Click on Map to change you location
+				<ng-map center="37.7699298, -122.4469157" zoom="4" on-click="propertyCtrl.addMarker()">
+					<marker ng-repeat="position in propertyCtrl.positions" 
+						position="{{position.lat}}, {{position.lng}}">
+					</marker>
+				</ng-map>
+			</div>
+
+
+			<br /> 
+			<br /> 
+			<form name="userForm" ng-submit="userForm.$valid && propertyCtrl.addProperty(propertyCtrl.property)" novalidate>
+				{{propertyCtrl.message}}
+				<fieldset class="form-group">
+					<input type="eamil" ng-model="propertyCtrl.property.createdBy.email" class="form-control" 
+						placeholder="Email" required/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input type="password" ng-model="propertyCtrl.property.createdBy.password" class="form-control" 
+					placeholder="Password" required/>
+				</fieldset>
+
+
+
+
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.address.street1" class="form-control" 
+						placeholder="Street"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.address.city" class="form-control" 
+					placeholder="City" required/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.address.state" class="form-control" 
+					placeholder="State" required/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.address.zipCode" class="form-control" 
+					placeholder="Zip Code" required/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.address.country" class="form-control" 
+					placeholder="Country"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.estimates.price" class="form-control"
+					placeholder="Estimated Price"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<textarea ng-model="propertyCtrl.property.description" class="form-control"
+					placeholder="Description"></textarea> 
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.lot.size" class="form-control"
+					placeholder="Lot Size"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.general.bedrooms" class="form-control"
+					placeholder="Bedrooms"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.general.rooms" class="form-control"
+					placeholder="Rooms"/>
+				</fieldset>
+
+
+				<fieldset class="form-group">
+					<input ng-model="propertyCtrl.property.general.bathrooms" class="form-control"
+					placeholder="Bathrooms"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input type="hidden" ng-model="propertyCtrl.property.address.coordinates"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input type="submit" class="btn btn-default pull-right" value="Cancel" />
+					<input type="submit" class="btn btn-primary pull-right" style="margin-right: 10px;" value="Save" />
+				</fieldset>
+
+
+			</form>
+
+
+		</div><!-- create-->
+
+	</div>
