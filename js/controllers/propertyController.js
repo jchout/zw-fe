@@ -57,23 +57,26 @@
 			});
 		};
 
-		scope.listProperties = function() {
+		$scope.listProperties = function() {
+			console.log('helllo..');
 			$http({
 				method: 'GET',
-				url: '/api/properties',
+				url: 'http://52.29.132.129/api/properties',
 				dataType: "json",
-				data: property,
+				data: {},
 				headers: {
 					"Content-Type": "application/json; charset=utf-8",
 					"Accept": "application/json"
 				}
 			}).then(function(response) {
-				if (!response.ok) {
+				var body = response.data;
+				console.log(body);
+				if (!body.ok) {
 					 return alert('We cannot pull properties at the moment.');
 				}
 
-				var results = response.results;
-				$scope.properties = results;
+				var results = body.results;
+				$scope.properties = results
 			}, function(error) {
 				console.log(error);
 				scope.message = 'Error! property not created';
