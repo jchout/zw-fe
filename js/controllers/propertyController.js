@@ -3,6 +3,12 @@
 	var app = angular.module('property-module', ['ngMap']);
 	app.controller('propertyController', ['$http', '$scope', '$routeParams', 'NgMap',function($http, $scope, $routeParams, NgMap){
 		var vm = this;
+		console.log($);
+		$('#add-equip').tagsinput({
+			maxTags: 50,
+			allowDuplicates: false
+			// tagClass: 'big'
+		});
 		NgMap.getMap().then(function(map) {
 	    console.log('map --> ', map);
 	    vm.map = map;
