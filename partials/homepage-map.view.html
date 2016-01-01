@@ -4,7 +4,7 @@
     <div >
       <ng-map center="37.7699298, -122.4469157" zoom="4" id="map">
         <marker ng-repeat="record in properties"
-          position="{{record.address.lat}},{{record.address.lng}}" 
+          position="{{record.address.lat}},{{record.address.lng}}"
           title="{{p.toString()}}"
           on-click="map.showInfoWindow('bar-{{$idx}}')" >
         </marker>
@@ -12,16 +12,21 @@
 
         <info-window id="bar-{{$idx}}" ng-repeat="info in properties" >
           <div ng-non-bindable>
-
-            <div id="siteNotice"></div>
-            <h1 id="firstHeading" class="firstHeading">zillow</h1>
-            <div id="bodyContent">
-              <p>{{info.address.street1}}</p>
+            <div class="row">
+              <div class="col-lg-4">
+                <img ng-src="http://52.29.132.129/api/r/{{info.photos}}" />
+              </div>
+              <div class="col-lg-6">
+                <div class="price">{{info.estimates.price}}</div>
+                <span class="second-line">{{info.general.bedrooms}} bd, {{info.general.bathrooms}} ba</span>
+                <span class="third-line">{{info.lot.size}} {{info.lot.type}}</span>
+              </div>
             </div>
+            <a ng-href="/#/property/{{info._id}}">view</a>
 
           </div>
         </info-window>
-    
+
       </ng-map>
   </div><!-- create-->
 

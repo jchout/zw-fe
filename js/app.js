@@ -8,6 +8,11 @@
 			controller: "propertyController"
 		});
 
+		$routeProvider.when('/property/:id',{
+			templateUrl: 'partials/view-property.view.html',
+			controller: "propertyController"
+		});
+
 		$routeProvider.when('/user',{
 			templateUrl: 'partials/user.html',
 			controller: "UserController"

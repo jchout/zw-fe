@@ -1,7 +1,7 @@
 (function() {
 
 	var app = angular.module('property-module', ['ngMap']);
-	app.controller('propertyController', ['$http', '$scope', 'NgMap',function($http, $scope, NgMap){
+	app.controller('propertyController', ['$http', '$scope', '$routeParams', 'NgMap',function($http, $scope, $routeParams, NgMap){
 		var vm = this;
 		NgMap.getMap().then(function(map) {
 	    console.log('map --> ', map);
@@ -20,9 +20,10 @@
 			'createdBy': {}
 		};
 		$scope.properties = [];
+		$scope.property = {};
 		$scope._iw = {};
 		scope.positions = [{lat:37.7699298,lng:-122.4469157}];
-		scope.property.address.coordinates = [37.7699298,-122.4469157];
+		// scope.property.address.coordinates = [37.7699298,-122.4469157];
 
 		scope.addMarker = function(event) {
 			var place = event.latLng;
@@ -104,25 +105,25 @@
 			 vm.map.showInfoWindow('info-window', 'marker-' + record._id);
 		}
 
+		$scope.findOne = function findOne() {
+			console.log('hello foo');
+			$http({
+				method: 'GET',
+				url: 'http://52.29.132.129/api/properties/' + $routeParams.id,
+				dataType: "json",
+				data: '',
+				headers: {
+				"Content-Type": "application/json; charset=utf-8",
+				"Accept": "application/json"
+				}
+			}).then(function(response) {
+				$scope.property = response.data.results;
+				console.log(response.data.results);
 
-		$http({
-			method: 'GET',
-			url: 'http://52.29.132.129/api/users/3',
-			dataType: "json",
-			data: '',
-			headers: {
-			"Content-Type": "application/json; charset=utf-8",
-			"Accept": "application/json"
-			}
-		}).then(function(response) {
-			console.log(response.data.results);
-			$scope.details = response.data.results;
-			console.log($scope.details.email);
-			console.log($scope.details.password);
-
-		}, function(error) {
-			console.log(error);
-		});
+			}, function(error) {
+				console.log(error);
+			});
+		}
 
 
 	}]);
