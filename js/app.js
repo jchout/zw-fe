@@ -12,6 +12,11 @@
 			templateUrl: 'partials/view-property.view.html',
 			controller: "propertyController"
 		});
+		
+		$routeProvider.when('/add',{
+			templateUrl: 'partials/property-create.view.html',
+			controller: "propertyController"
+		});
 
 		$routeProvider.when('/user',{
 			templateUrl: 'partials/user.html',
