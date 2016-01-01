@@ -72,6 +72,27 @@
 			});
 		};
 
+		scope.photo = '';
+		$scope.uploadImage = function () {
+			console.log("Changed");
+		}
+
+
+		// $scope.setFiles = function(form) {
+		// 	console.log(1);
+		// 	// if ( form.files && form.files[0] ) {
+		// 	// 	var fileReader = new FileReader();
+		// 	// 	fileReader.onload = function(e) {
+		// 	// 	     $('#img').attr( "src", e.target.result );
+		// 	// 	     console.log(e.target.result);
+
+		// 	// 	     // keep this in array    $('#base').text( e.target.result );
+		// 	// 	};       
+		// 	// 	fileReader.readAsDataURL( form.files[0] );
+		// 	// }
+		// };
+
+
 		$scope.listProperties = function() {
 			console.log('helllo..');
 			$http({

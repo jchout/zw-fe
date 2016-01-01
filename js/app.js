@@ -18,6 +18,12 @@
 			controller: "propertyController"
 		});
 
+
+		$routeProvider.when('/test',{
+			templateUrl: 'partials/image.html',
+			controller: "propertyController"
+		});
+
 		$routeProvider.when('/user',{
 			templateUrl: 'partials/user.html',
 			controller: "UserController"
