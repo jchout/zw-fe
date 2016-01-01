@@ -29,7 +29,7 @@
 		$scope.property = {};
 		$scope._iw = {};
 		scope.positions = [{lat:37.7699298,lng:-122.4469157}];
-		// scope.property.address.coordinates = [37.7699298,-122.4469157];
+		scope.property.address.coordinates = [37.7699298,-122.4469157];
 
 		scope.addMarker = function(event) {
 			var place = event.latLng;
@@ -59,6 +59,8 @@
 				console.log(response);
 				if (response.data.ok == true){
 					scope.property = {};
+					$('input').removeClass('ng-valid').removeClass('ng-invalid').removeClass('ng-dirty');
+					$('textarea').removeClass('ng-invalid').removeClass('ng-valid').removeClass('ng-dirty');
 					scope.message = 'Success! property created sucessfully';
 				}
 				else{
