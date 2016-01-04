@@ -19,8 +19,10 @@
     <link href="css/custom.css" rel="stylesheet">
 
     <link href="css/bootstrap-tagsinput.css" rel="stylesheet">
-
-
+    <script type="text/javascript">
+      // window.API_URL = 'http://172.17.0.2:9999';
+      window.API_URL = 'http://52.29.132.129/api';
+    </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -385,9 +387,9 @@
                     <!-- right hand side navigation -->
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Advertise</a></li>
-                        <li><a href="#">Sign in</a></li>
+                        <li><a href="/#/auth">Sign in</a></li>
                         <li class="spacer">or</li>
-                        <li><a href="#">Join</a></li>
+                        <li><a href="/#/add">sell property</a></li>
                         <li class="glyphyicon-alignment"><a href="#"><span class="glyphicon glyphicon-question-sign"></span></a></li>
                     </ul>
                     <!-- right hand side navigation ends here -->
@@ -463,14 +465,8 @@
 	<section ng-view ></section>
 
 
-
-
-
-
-
-
-
 <!-- jQuery Version 1.11.1 -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/async/1.5.1/async.min.js"></script>
 <script src="js/lib/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
