@@ -43,9 +43,9 @@
          <h1>{{property.address.street1}}, {{property.address.city}}, {{property.address.zipCode}}</h1>
          <h3> Bedrooms: {{property.general.bedrooms}}</h3>
          <h3> Bathrooms:  {{property.general.bathrooms}} </h3>
+         <h3> Type:  {{property.type}} </h3>
          <h3> Measure:  {{property.lot.size}} {{property.lot.type}}</h3>
          <p>{{property.description}}</p>
-         <h3>ORIENTATION: {{property.orientation}}</h3>
      </div>
      <div class="col-sm-4 details-prices">
          <h3 >  <span class="dot-red"></span>For {{property.mode}} </h3>
@@ -56,17 +56,23 @@
   </div><!--  //details ends here  -->
 
   <div class="facts">
-    <h3 >Equipments</h3>
     <div class="row">
       <div class="col-sm-3">
+        <h3 >Equipments</h3>
           <ul>
-              <li ng-repeat="equip in property.equipments">{{equip}}</li>
+              <li ng-if="property.equipments.fireplace">Fireplace</li>
+              <li ng-if="property.equipments.swimming_pool">Swimming Pool</li>
           </ul>
       </div>
-      <div class="col-sm-5">
-      </div>
-      <div class="col-lg-4" ng-if="property.video">
-        <!-- <youtube-video video-id="fullVideo"></youtube-video> -->
+      <div class="col-sm-3">
+        <h3 >Additional Areas</h3>
+          <ul>
+              <li ng-if="property.additional_areas.garden_courtyard">Garden and/or Courtyard</li>
+              <li ng-if="property.additional_areas.terrace">Terrace / Balcony</li>
+              <li ng-if="property.additional_areas.garage">Garage</li>
+              <li ng-if="property.additional_areas.cellar">Cellar / Attict</li>
+              <li ng-if="property.additional_areas.dependency">Dependency</li>
+          </ul>
       </div>
     </div>
   </div> <!--  ////// facts ends here  -->

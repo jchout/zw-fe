@@ -49,9 +49,9 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="form-group">
-							<label >State</label>
-							<input ng-model="propertyCtrl.property.address.state" class="form-control"
-							placeholder="State" required/>
+							<label >Postal Code</label>
+							<input ng-model="propertyCtrl.property.address.zipCode" class="form-control"
+							placeholder="Zip Code" required/>
 						</div>
 					</div>
 					<div class="col-sm-4">
@@ -60,31 +60,6 @@
 							<select ng-model="propertyCtrl.property.address.country" class="form-control">
 								<option value="FR">France</option>
 							</select>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="form-group">
-							<label >Estimated Price</label>
-							<input ng-model="propertyCtrl.property.estimates.price" class="form-control"
-							placeholder="ie. 500000"/>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="form-group">
-							<label >Currency</label>
-							<select ng-model="propertyCtrl.property.estimates.currency" class="form-control">
-								<option value="EUR" selected="selected">Euro</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="form-group">
-							<label >Postal Code</label>
-							<input ng-model="propertyCtrl.property.address.zipCode" class="form-control"
-							placeholder="Zip Code" required/>
 						</div>
 					</div>
 				</div>
@@ -104,19 +79,30 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="form-group">
+							<label >Estimated Price</label>
+							<input ng-model="propertyCtrl.property.estimates.price" class="form-control"
+							placeholder="ie. 500000"/>
+						</div>
+						<!-- <div class="form-group">
 							<label >Size Type</label>
 							<select ng-model="propertyCtrl.property.lot.type" class="form-control">
 								<option value="SQM">Square Meter</option>
 								<option value="SQYD">Square Yard</option>
 								<option value="SQFT">Square Feet</option>
 							</select>
-						</div>
+						</div> -->
 					</div>
 					<div class="col-sm-4">
 						<div class="form-group">
-							<label >Orientation</label>
-							<input ng-model="propertyCtrl.property.orientation" class="form-control"
-							placeholder="i.e South"/>
+							<label >Property Type</label>
+							<select ng-model="propertyCtrl.property.type" class="form-control">
+								<option value="LOFT">LOFT</option>
+								<option value="BUILDING">BUILDING</option>
+								<option value="APARTMENT">APARTMENT</option>
+								<option value="HOUSE">HOUSE</option>
+								<option value="COMMERCIAL">COMMERCIAL SPACE</option>
+								<option value="CASTLE">CASTLE</option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -145,11 +131,54 @@
 				</div>
 
 				<div class="row">
-
 					<div class="col-lg-12">
-						<div class="form-group">
-							<label>Equipments</label><br />
-							<input class="form-control" type="text" name="propertyCtrl.property.equipments" id="add-equip" />
+						<h3>Equipments</h3>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<input ng-model="propertyCtrl.property.equipments.fireplace" type="checkbox" />
+								<label>Firepalce</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<input ng-model="propertyCtrl.property.equipments.swimming_pool" type="checkbox" />
+								<label>Swimming Pool</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<h3>Additional Areas</h3>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<input ng-model="propertyCtrl.property.additional_areas.garden_courtyard" type="checkbox" />
+								<label>Garden and/or Courtyard</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<input ng-model="propertyCtrl.property.additional_areas.terrace" type="checkbox" />
+								<label>Balcony / Terrace</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<input ng-model="propertyCtrl.property.additional_areas.garage" type="checkbox" />
+								<label>Garage</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<input ng-model="propertyCtrl.property.additional_areas.cellar" type="checkbox" />
+								<label>Cellar</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<input ng-model="propertyCtrl.property.additional_areas.dependency" type="checkbox" />
+								<label>Dependency</label>
+							</div>
 						</div>
 					</div>
 				</div>

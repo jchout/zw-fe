@@ -3,13 +3,7 @@
 	var app = angular.module('property-module', ['ngMap', 'youtube-embed']);
 	app.controller('propertyController', ['$http', '$scope', '$location', '$routeParams', 'NgMap', function(
 		$http, $scope, $location, $routeParams, NgMap){
-		$scope.fullVideo = 'sMKoNBRZM1M';
 		var vm = this;
-		$('#add-equip').tagsinput({
-			maxTags: 50,
-			allowDuplicates: false
-			// tagClass: 'big'
-		});
 		NgMap.getMap().then(function(map) {
 	    console.log('map --> ', map);
 	    vm.map = map;
@@ -24,6 +18,8 @@
 				'zipCode' : '',
 				'coordinates' : []
 			},
+			additional_areas: {},
+			equipments: {},
 			'createdBy': {}
 		};
 		$scope.properties = [];
@@ -93,7 +89,6 @@
 		scope.addProperty = function(property) {
 			$('#submit-create-property').attr('ng-disabled', true).val('Please wait..');
 			var fileList = document.getElementById('upload-photos').files;
-			property.equipments = $('#add-equip').tagsinput('items');
 			findCoords(property, function(err, coords) {
 				if (err) {
 					// Show error.

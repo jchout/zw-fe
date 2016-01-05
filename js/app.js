@@ -13,6 +13,11 @@
 			controller: "propertyController"
 		});
 
+		$routeProvider.when('/property/:id/edit',{
+			templateUrl: 'partials/edit-property.view.html',
+			controller: "propertyController"
+		});
+
 		$routeProvider.when('/property/:id/photos',{
 			templateUrl: 'partials/view-property.view.html',
 			controller: "propertyController"
