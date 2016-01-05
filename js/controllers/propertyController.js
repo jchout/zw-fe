@@ -28,6 +28,31 @@
 		scope.positions = [{lat:37.7699298,lng:-122.4469157}];
 		scope.property.address.coordinates = [37.7699298,-122.4469157];
 
+		scope.authenticate = function authenticate() {
+			console.log(scope.auth);
+			$http({
+				method: 'POST',
+				url: API_URL + '/users/auth',
+				dataType: "json",
+				data: {
+					email: scope.auth.email,
+					password: scope.auth.password,
+					propertyId: scope.auth.property
+				},
+				headers: {
+					"Content-Type": "application/json; charset=utf-8",
+					"Accept": "application/json"
+				}
+			}).then(function successCallback(response) {
+				console.log(response);
+				if (response.data.ok) {
+					$location.path('/property/' + scope.auth.property + '/edit');
+				}
+			}, function errorCallback(response) {
+				console.log(response);
+			});
+		}
+
 		scope.addMarker = function(event) {
 			var place = event.latLng;
 			scope.positions = scope.property.address.coordinates = [];

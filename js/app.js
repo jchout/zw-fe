@@ -33,6 +33,11 @@
 			controller: "propertyController"
 		});
 
+		$routeProvider.when('/auth',{
+			templateUrl: 'partials/auth.view.html',
+			controller: "propertyController"
+		});
+
 
 		$routeProvider.when('/test',{
 			templateUrl: 'partials/image.html',
