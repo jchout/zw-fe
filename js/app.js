@@ -12,7 +12,17 @@
 			templateUrl: 'partials/view-property.view.html',
 			controller: "propertyController"
 		});
-		
+
+		$routeProvider.when('/property/:id/photos',{
+			templateUrl: 'partials/view-property.view.html',
+			controller: "propertyController"
+		});
+
+		$routeProvider.when('/property/:id/video',{
+			templateUrl: 'partials/view-video.view.html',
+			controller: "propertyController"
+		});
+
 		$routeProvider.when('/add',{
 			templateUrl: 'partials/property-create.view.html',
 			controller: "propertyController"
