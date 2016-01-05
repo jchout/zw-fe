@@ -1,8 +1,9 @@
 (function() {
 
-	var app = angular.module('property-module', ['ngMap']);
+	var app = angular.module('property-module', ['ngMap', 'youtube-embed']);
 	app.controller('propertyController', ['$http', '$scope', '$location', '$routeParams', 'NgMap', function(
 		$http, $scope, $location, $routeParams, NgMap){
+		$scope.fullVideo = 'sMKoNBRZM1M';
 		var vm = this;
 		$('#add-equip').tagsinput({
 			maxTags: 50,
@@ -72,73 +73,101 @@
 			});
 		}
 
+		function findCoords(property, callback) {
+			var addr = [
+				property.address.street1,
+				property.address.zipCode,
+				property.address.city,
+				property.address.state,
+				property.address.country].filter(Boolean).join(',');
+			console.log(addr);
+			$.get('http://maps.google.com/maps/api/geocode/json?address=' + addr + '&sensor=false',
+			function( data ) {
+				if (data.status != 'OK') return callback(new Error('We cannot find the coordinates of the location.'));
+				var coords = data.results[0].geometry.location;
+				coords = [coords.lat, coords.lng];
+				return callback(null, coords);
+			});
+		}
+
 		scope.addProperty = function(property) {
+			$('#submit-create-property').attr('ng-disabled', true).val('Please wait..');
 			var fileList = document.getElementById('upload-photos').files;
 			property.equipments = $('#add-equip').tagsinput('items');
-			convertToBase64(fileList, function convertedCallback(err, images) {
-				$http({
-					method: 'POST',
-					// url: 'http://52.29.132.129/api/properties',
-					url: API_URL + '/properties',
-					dataType: "json",
-					data: property,
-					headers: {
-						"Content-Type": "application/json; charset=utf-8",
-						"Accept": "application/json"
-					}
-				}).then(function(response) {
-					console.log(response);
-					var body = response.data.results;
-					if (response.data.ok == true) {
-						// Lets upload images if it they are.
-						var funcs = [];
-						if (images.length > 0) {
-							images.forEach(function(base64str) {
-								funcs.push(function uploadPhoto(done) {
-									$http({
-										method: 'POST',
-										// url: 'http://52.29.132.129/api/properties/' + body._id + '/photos',
-										url: API_URL + '/properties/' + body._id + '/photos',
-										dataType: "json",
-										data: {
-											photo: base64str
-										},
-										headers: {
-											"Content-Type": "application/json; charset=utf-8",
-											"Accept": "application/json"
-										}
-									}).then(function successOK(response) {
-										//  var body = response.data.results;
-										 return done(null, response);
-									}, function errorFound(response) {
-										return done(response);
+			findCoords(property, function(err, coords) {
+				if (err) {
+					// Show error.
+					return alert(err.message);
+				}
+				console.log(arguments);
+				property.address.coordinates = coords;
+
+				convertToBase64(fileList, function convertedCallback(err, images) {
+					$http({
+						method: 'POST',
+						url: API_URL + '/properties',
+						dataType: "json",
+						data: property,
+						headers: {
+							"Content-Type": "application/json; charset=utf-8",
+							"Accept": "application/json"
+						}
+					}).then(function(response) {
+						console.log(response);
+						var body = response.data.results;
+						if (response.data.ok == true) {
+							// Lets upload images if it they are.
+							var funcs = [];
+							if (images.length > 0) {
+								images.forEach(function(base64str) {
+									funcs.push(function uploadPhoto(done) {
+										$http({
+											method: 'POST',
+											// url: 'http://52.29.132.129/api/properties/' + body._id + '/photos',
+											url: API_URL + '/properties/' + body._id + '/photos',
+											dataType: "json",
+											data: {
+												photo: base64str
+											},
+											headers: {
+												"Content-Type": "application/json; charset=utf-8",
+												"Accept": "application/json"
+											}
+										}).then(function successOK(response) {
+											 if (!response.data.ok) return done(response);
+											 return done(null, response);
+										}, function errorFound(response) {
+											return done(response);
+										});
 									});
 								});
-							});
 
-							async.parallel(funcs, function photosUploaded(err, ok) {
-								console.log(arguments);
-								if (err) {
-									// Something went wrong to upload photo.
-								}
+								async.parallel(funcs, function photosUploaded(err, ok) {
+									console.log(arguments);
+									if (err) {
+										// Something went wrong to upload photo.
+										console.log('> E: ', arguments);
+										return false;
+									}
 
-								$('input').removeClass('ng-valid').removeClass('ng-invalid').removeClass('ng-dirty');
-								$('textarea').removeClass('ng-invalid').removeClass('ng-valid').removeClass('ng-dirty');
-								scope.message = 'Success! property created sucessfully';
-								$location.path('/property/' + body._id);
-							});
+									$('input').removeClass('ng-valid').removeClass('ng-invalid').removeClass('ng-dirty');
+									$('textarea').removeClass('ng-invalid').removeClass('ng-valid').removeClass('ng-dirty');
+									scope.message = 'Success! property created sucessfully';
+									$location.path('/property/' + body._id);
+								});
+							}
+							// scope.property = {};
+							// $('input').removeClass('ng-valid').removeClass('ng-invalid').removeClass('ng-dirty');
+							// $('textarea').removeClass('ng-invalid').removeClass('ng-valid').removeClass('ng-dirty');
+							// scope.message = 'Success! property created sucessfully';
 						}
-						// scope.property = {};
-						// $('input').removeClass('ng-valid').removeClass('ng-invalid').removeClass('ng-dirty');
-						// $('textarea').removeClass('ng-invalid').removeClass('ng-valid').removeClass('ng-dirty');
-						// scope.message = 'Success! property created sucessfully';
-					}
-					else{
+						else{
+							console.log('CANNOT CREATE PROPERTY', response);
+						}
+					}, function(error) {
+						console.log(error);
 						scope.message = 'Error! property not created';
-					}
-				}, function(error) {
-					console.log(error);
-					scope.message = 'Error! property not created';
+					});
 				});
 			});
 		};
@@ -190,7 +219,6 @@
 					return record;
 				});
 
-				console.log(results);
 				$scope.properties = results;
 
 			}, function(error) {
@@ -213,11 +241,12 @@
 				dataType: "json",
 				data: '',
 				headers: {
-				"Content-Type": "application/json; charset=utf-8",
-				"Accept": "application/json"
+					"Content-Type": "application/json; charset=utf-8",
+					"Accept": "application/json"
 				}
 			}).then(function(response) {
 				$scope.property = response.data.results;
+				$scope.fullVideo = $scope.property.video;
 				console.log(response.data.results);
 
 			}, function(error) {
