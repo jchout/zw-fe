@@ -189,10 +189,6 @@
 			});
 		};
 
-		$scope.uploadImage = function () {
-			console.log("Changed");
-		}
-
 		$scope.listProperties = function() {
 			console.log('helllo..');
 			$http({
@@ -217,6 +213,13 @@
 					console.log(record.address.coordinates);
 					record.address.lat = record.address.coordinates[0];
 					record.address.lng = record.address.coordinates[1];
+					record._options = {
+						labelContent : '<br />120',
+						labelAnchor: "36 61",
+						labelClass: 'labelClass',
+						// labelStyle: newstyle,
+						labelInBackground: false
+					};
 					return record;
 				});
 
