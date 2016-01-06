@@ -4,8 +4,8 @@
 	app.controller('propertyController', ['$http', '$scope', '$location', '$routeParams', 'NgMap', function(
 		$http, $scope, $location, $routeParams, NgMap){
 		var vm = this;
+		vm.API_URL = window.API_URL;
 		NgMap.getMap().then(function(map) {
-	    console.log('map --> ', map);
 	    vm.map = map;
 	  });
 		var scope = this;
@@ -24,9 +24,6 @@
 		};
 		$scope.properties = [];
 		$scope.property = {};
-		$scope._iw = {};
-		scope.positions = [{lat:37.7699298,lng:-122.4469157}];
-		scope.property.address.coordinates = [37.7699298,-122.4469157];
 
 		scope.authenticate = function authenticate() {
 			console.log(scope.auth);
@@ -192,25 +189,9 @@
 			});
 		};
 
-		scope.photo = '';
 		$scope.uploadImage = function () {
 			console.log("Changed");
 		}
-
-
-		// $scope.setFiles = function(form) {
-		// 	console.log(1);
-		// 	// if ( form.files && form.files[0] ) {
-		// 	// 	var fileReader = new FileReader();
-		// 	// 	fileReader.onload = function(e) {
-		// 	// 	     $('#img').attr( "src", e.target.result );
-		// 	// 	     console.log(e.target.result);
-
-		// 	// 	     // keep this in array    $('#base').text( e.target.result );
-		// 	// 	};
-		// 	// 	fileReader.readAsDataURL( form.files[0] );
-		// 	// }
-		// };
 
 		$scope.listProperties = function() {
 			console.log('helllo..');
@@ -239,18 +220,13 @@
 					return record;
 				});
 
-				$scope.properties = results;
+				vm.properties = results;
 
 			}, function(error) {
 				console.log(error);
 				scope.message = 'Error! property not created';
 			});
 		};
-
-		$scope.showDetails = function(record) {
-			console.log('Show>>>', $scope._iw);
-			 vm.map.showInfoWindow('info-window', 'marker-' + record._id);
-		}
 
 		$scope.findOne = function findOne() {
 			$http({
@@ -272,8 +248,12 @@
 			}, function(error) {
 				console.log(error);
 			});
-		}
+		};
 
-
+		vm.showDetails = function showDetails(evt, property) {
+			// $scope.info = property;
+			vm.info = property;
+			$scope.map.showInfoWindow('iwb', property._id);
+		};
 	}]);
 })();

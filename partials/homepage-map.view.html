@@ -1,32 +1,29 @@
-<div class="container" ng-controller="propertyController" ng-init="listProperties()">
+<div class="container" ng-controller="propertyController as vm" ng-init="listProperties()">
 
     <!-- map to get location -->
     <div >
       <ng-map center="48.8221891, 2.3307503" zoom="4" id="map">
-        <marker ng-repeat="record in properties"
+        <marker id='{{record._id}}' ng-repeat="record in vm.properties"
           position="{{record.address.lat}},{{record.address.lng}}"
           title="{{p.toString()}}"
-          on-click="map.showInfoWindow('bar-{{$idx}}')" >
-        </marker>
-
-
-        <info-window id="bar-{{$idx}}" ng-repeat="info in properties" >
-          <div ng-non-bindable>
-            <div class="row">
-              <div class="col-lg-4">
-                <img ng-src="http://52.29.132.129/api/r/{{info.photos}}" />
+          on-click="vm.showDetails(record)">
+          <info-window id="iwb"  visible-on-marker='{{vm.info._id}}'>
+            <div ng-non-bindable>
+              <div class="row">
+                <div class="col-lg-4">
+                  <img style="width: 50px; height: 50px;" ng-src="{{vm.API_URL}}/r/{{vm.info.photos[0]}}" />
+                </div>
+                <div class="col-lg-6">
+                  <div class="price">{{vm.info.estimates.price}}</div>
+                  <span class="second-line">{{vm.info.general.bedrooms}} bd, {{vm.info.general.bathrooms}} ba</span>
+                  <span class="third-line">{{vm.info.lot.size}} {{vm.info.lot.type}}</span>
+                </div>
               </div>
-              <div class="col-lg-6">
-                <div class="price">{{info.estimates.price}}</div>
-                <span class="second-line">{{info.general.bedrooms}} bd, {{info.general.bathrooms}} ba</span>
-                <span class="third-line">{{info.lot.size}} {{info.lot.type}}</span>
-              </div>
+              <a ng-href="/#/property/{{info._id}}">view</a>
+
             </div>
-            <a ng-href="/#/property/{{info._id}}">view</a>
-
-          </div>
-        </info-window>
-
+          </info-window>
+        </marker>
       </ng-map>
   </div><!-- create-->
 
