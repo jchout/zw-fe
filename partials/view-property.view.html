@@ -41,16 +41,16 @@
   <div class="row">
       <div class="col-sm-8">
          <h1>{{property.address.street1}}, {{property.address.zipCode}}, {{property.address.city}}</h1>
-         <h3> Bedrooms: {{property.general.bedrooms}}</h3>
-         <h3> Bathrooms:  {{property.general.bathrooms}} </h3>
-         <h3> Type:  {{property.type}} </h3>
-         <h3> Measure:  {{property.lot.size}} {{property.lot.type}}</h3>
+         <h3> CHAMBRES: {{property.general.bedrooms}}</h3>
+         <h3> SALLES DE BAIN:  {{property.general.bathrooms}} </h3>
+         <h3> TYPE:  <span translate>{{property.type}}</span> </h3>
+         <h3> SURFACE:  {{property.lot.size}} {{property.lot.type}}</h3>
          <p>{{property.description}}</p>
      </div>
      <div class="col-sm-4 details-prices">
-         <h3 >  <span class="dot-red"></span>For {{property.mode}} </h3>
+         <h3 >  <span class="dot-red"></span>A VENDRE</h3>
          <h2 class="price">{{property.estimates.currency}}<b> {{property.estimates.price}}</b></h2>
-         <h3>EST. PRICE</h3>
+         <h3>PRIX DE VENTE</h3>
      </div>
   </div>
   </div><!--  //details ends here  -->
@@ -58,20 +58,20 @@
   <div class="facts">
     <div class="row">
       <div class="col-sm-3">
-        <h3 >Equipments</h3>
+        <h3>EQUIPEMENTS</h3>
           <ul>
-              <li ng-if="property.equipments.fireplace">Fireplace</li>
-              <li ng-if="property.equipments.swimming_pool">Swimming Pool</li>
+              <li ng-if="property.equipments.fireplace">Cheminée</li>
+              <li ng-if="property.equipments.swimming_pool">Piscine</li>
           </ul>
       </div>
       <div class="col-sm-3">
-        <h3 >Additional Areas</h3>
+        <h3 >SURFACES ANNEXES</h3>
           <ul>
-              <li ng-if="property.additional_areas.garden_courtyard">Garden and/or Courtyard</li>
-              <li ng-if="property.additional_areas.terrace">Terrace / Balcony</li>
+              <li ng-if="property.additional_areas.garden_courtyard">Jardin, cour</li>
+              <li ng-if="property.additional_areas.terrace">Balcon, terrasse</li>
               <li ng-if="property.additional_areas.garage">Garage</li>
-              <li ng-if="property.additional_areas.cellar">Cellar / Attict</li>
-              <li ng-if="property.additional_areas.dependency">Dependency</li>
+              <li ng-if="property.additional_areas.cellar">Cave, grenier</li>
+              <li ng-if="property.additional_areas.dependency">Dépendance</li>
           </ul>
       </div>
     </div>

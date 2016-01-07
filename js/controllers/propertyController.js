@@ -1,8 +1,30 @@
 (function() {
 
-	var app = angular.module('property-module', ['ngMap', 'youtube-embed']);
-	app.controller('propertyController', ['$http', '$scope', '$location', '$routeParams', 'NgMap', function(
-		$http, $scope, $location, $routeParams, NgMap){
+	var app = angular.module('property-module', ['ngMap', 'youtube-embed', 'pascalprecht.translate']);
+
+	app.config(function($translateProvider) {
+		$translateProvider.translations('en',{
+			'APARTMENT': 'Apartment',
+			'HOUSE': 'House',
+			'BUILDING': 'Building',
+			'LOFT': 'Loft',
+			'COMMERCIAL': 'Commercial Space',
+			'CASTLE': 'Castle'
+		});
+
+		$translateProvider.translations('fr',{
+			'APARTMENT': 'APppartement',
+			'HOUSE': 'Maison',
+			'BUILDING': 'Immeuble',
+			'LOFT': 'Loft',
+			'COMMERCIAL': 'Local commercial',
+			'CASTLE': 'Château'
+		}).preferredLanguage('fr');
+
+		$translateProvider.useSanitizeValueStrategy('sanitize');
+	});
+	app.controller('propertyController', ['$http', '$scope', '$location', '$routeParams', '$translate', 'NgMap', function(
+		$http, $scope, $location, $routeParams, $translate, NgMap){
 		var vm = this;
 		vm.API_URL = window.API_URL;
 		NgMap.getMap().then(function(map) {
@@ -246,8 +268,6 @@
 			}).then(function(response) {
 				$scope.property = response.data.results;
 				$scope.fullVideo = $scope.property.video;
-				console.log(response.data.results);
-
 			}, function(error) {
 				console.log(error);
 			});

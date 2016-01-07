@@ -1,6 +1,6 @@
 (function() {
 
-	var app = angular.module('zillow', ['ngMap', 'ngRoute', 'property-module', 'user-module']);
+	var app = angular.module('zillow', ['ngMap', 'ngRoute', 'ngSanitize', 'property-module', 'user-module']);
 
 	app.config(function($routeProvider){
 		$routeProvider.when('/',{

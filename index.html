@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="zillow" lang="en">
+<html ng-app="zillow" lang="fr">
 <head>
 
     <meta charset="utf-8">
@@ -33,7 +33,9 @@
 	<script type="text/javascript" src="js/lib/angular.min.js"></script>
 	<script type="text/javascript" src="js/lib/angular-route.min.js"></script>
 	<script src="js/lib/ng-map.js"></script>
-    </head>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.4.8/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.min.js"></script>
+</head>
 
     <body>
         <header><!-- top level navigation starts here -->
@@ -75,21 +77,21 @@
                         <!-- left hand navigation -->
                         <ul class="nav navbar-nav menu-ul">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOME TYPE <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TYPE DE BIEN <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                       <div class="checkbox">
-                                        <label><input type="checkbox" value="">Apartment</label>
+                                        <label><input type="checkbox" value="">APppartement</label>
                                       </div>
                                     </li>
                                     <li>
                                       <div class="checkbox">
-                                        <label><input type="checkbox" value="">House</label>
+                                        <label><input type="checkbox" value="">Maison</label>
                                       </div>
                                     </li>
                                     <li>
                                       <div class="checkbox">
-                                        <label><input type="checkbox" value="">Building</label>
+                                        <label><input type="checkbox" value="">Immeuble</label>
                                       </div>
                                     </li>
                                     <li>
@@ -99,18 +101,18 @@
                                     </li>
                                     <li>
                                       <div class="checkbox">
-                                        <label><input type="checkbox" value="">Commercial Space</label>
+                                        <label><input type="checkbox" value="">Local commercial</label>
                                       </div>
                                     </li>
                                     <li>
                                       <div class="checkbox">
-                                        <label><input type="checkbox" value="">Castle</label>
+                                        <label><input type="checkbox" value="">Château</label>
                                       </div>
                                     </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRICE <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRIX <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                   <li>
                                     <div class="checkbox">
@@ -119,13 +121,13 @@
                                   </li>
                                   <li>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="">Max</label>
+                                      <label><input type="checkbox" value="">Maj</label>
                                     </div>
                                   </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">0+ BED <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">0+ CHAMBRES <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                   <li>
                                     <div class="checkbox">
@@ -145,46 +147,46 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ADDITIONAL AREAS <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SURFACES ANNEXES <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                   <li>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="">Garden, Courtyard</label>
+                                      <label><input type="checkbox" value="">Jardin, cour</label>
                                     </div>
                                   </li>
                                   <li>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="">Balcony, Terrace</label>
+                                      <label><input type="checkbox" value="">Balcon, terrasse</label>
                                     </div>
                                   </li>
                                   <li>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="">Garrage</label>
+                                      <label><input type="checkbox" value="">Garage</label>
                                     </div>
                                   </li>
                                   <li>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="">Cellar, Atic</label>
+                                      <label><input type="checkbox" value="">Cave, grenier</label>
                                     </div>
                                   </li>
                                   <li>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="">Dependency</label>
+                                      <label><input type="checkbox" value="">Dépendance</label>
                                     </div>
                                   </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EQUIPMENTS <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EQUIPEMENTS <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                   <li>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="">Fireplace</label>
+                                      <label><input type="checkbox" value="">Cheminée</label>
                                     </div>
                                   </li>
                                   <li>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="">Swimming Pool</label>
+                                      <label><input type="checkbox" value="">Piscine</label>
                                     </div>
                                   </li>
 
@@ -210,7 +212,7 @@
                             <li>
                                 <form class="navbar-form">
                                     <div class="input-group ">
-                                        <input type="text" class="form-control" placeholder="address, zip or city">
+                                        <input type="text" class="form-control" placeholder="adresse, code postal ou ville">
                                         <span class="input-group-addon">
                                             <a href="">
                                                 <i class="glyphicon glyphicon-search"></i>
@@ -241,9 +243,9 @@
 <script src="js/lib/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="js/lib/bootstrap.min.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="js/angular-youtube-embed.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="js/lib/bootstrap-tagsinput.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
