@@ -1,8 +1,8 @@
-<div class="container" ng-controller="propertyController as vm" ng-init="listProperties()">
+<div  ng-controller="propertyController as vm" ng-init="listProperties()">
 
     <!-- map to get location -->
     <div >
-      <ng-map center="48.8221891, 2.3307503" zoom="4" id="map">
+      <ng-map style="height: 600px;" center="48.8221891, 2.3307503" zoom="4" id="map">
         <marker id='{{record._id}}' ng-repeat="record in vm.properties"
           position="{{record.address.lat}},{{record.address.lng}}"
           title="{{p.toString()}}"
