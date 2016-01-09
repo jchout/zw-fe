@@ -8,17 +8,18 @@
           title="{{p.toString()}}"
           on-click="vm.showDetails(record)">
         </marker>
-        <info-window  ng-repeat="record in vm.properties" id="iw-{{record._id}}"  visible-on-marker='m-{{record._id}}'>
+        <info-window id="iwb" visible-on-marker='m-{{record._id}}'>
           <div ng-non-bindable>
             <div class="info-window-body">
               <div class="info-window-header">
-                <img height="46" width="46" src="http://photos3.zillowstatic.com/p_a/IS99pyt3qmrfw00000000000.jpg">
+                <img height="46" ng-if="vm.info.photos[0]" width="46" src="{{vm.API_URL}}/r/{{vm.info.photos[0]}}">
+                <img height="46" ng-if="!vm.info.photos[0]" width="46" src="http://photos3.zillowstatic.com/p_a/IS99pyt3qmrfw00000000000.jpg">
               </div>
               <div class="info-window-footer">
                 <div>
-                  <strong>€{{record.estimates.price | currency: ''}}/mo</strong>
-                  <div class=""><span translate>{{record.type}}</span>, {{record.general.bedrooms}} ch</div>
-                  <div class="">{{record.lot.size}} m2</div>
+                  <strong>€{{vm.info.estimates.price | currency: ''}}/mo</strong>
+                  <div class=""><span translate>{{vm.info.type}}</span>, {{vm.info.general.bedrooms}} ch</div>
+                  <div class="">{{vm.info.lot.size}} m2</div>
                 </div>
               </div>
             </div>

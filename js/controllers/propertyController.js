@@ -274,10 +274,9 @@
 		};
 
 		vm.showDetails = function showDetails(evt, property) {
-			// $scope.info = property;
 			vm.info = property;
-			console.log($scope.map);
-			$scope.map.showInfoWindow('iw-' + property._id, property._id);
+			$scope.map.showInfoWindow('iwb', property._id);
+			// $scope.map.showInfoWindow(evt.screenPoint, 'iw-' + property._id, property._id);
 		};
 	}]);
 })();
