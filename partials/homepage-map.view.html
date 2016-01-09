@@ -3,28 +3,34 @@
     <!-- map to get location -->
     <div >
       <ng-map style="height: 600px;" center="48.8221891, 2.3307503" zoom="4" id="map">
-        <marker id='{{record._id}}' ng-repeat="record in vm.properties"
+        <marker id='m-{{record._id}}' ng-repeat="record in vm.properties"
           position="{{record.address.lat}},{{record.address.lng}}"
           title="{{p.toString()}}"
           on-click="vm.showDetails(record)">
-          <info-window id="iwb"  visible-on-marker='{{vm.info._id}}'>
-            <div ng-non-bindable>
-              <div class="row">
-                <div class="col-lg-4">
-                  <img style="width: 50px; height: 50px;" ng-src="{{vm.API_URL}}/r/{{vm.info.photos[0]}}" />
-                </div>
-                <div class="col-lg-6">
-                  <div class="price">{{vm.info.estimates.price}}</div>
-                  <span class="second-line">{{vm.info.general.bedrooms}} ch, {{vm.info.general.bathrooms}} sdb</span>
-                  <span class="third-line">{{vm.info.lot.size}} M2</span>
-                </div>
-              </div>
-              <a ng-href="/#/property/{{vm.info._id}}">voir</a>
-
-            </div>
-          </info-window>
         </marker>
+        <info-window  ng-repeat="record in vm.properties" id="iw-{{record._id}}"  visible-on-marker='m-{{record._id}}'>
+          <div ng-non-bindable>
+            <h1>hamza</h1>
+          </div>
+        </info-window>
       </ng-map>
+      <!-- <div class="info-window">
+        <div class="info-window-inner">
+          <div class="info-window-body">
+            <div class="info-window-header">
+              <img height="46" width="46" src="http://photos3.zillowstatic.com/p_a/IS99pyt3qmrfw00000000000.jpg">
+            </div>
+            <div class="info-window-footer">
+              <div>
+                <strong>$1,513+/mo</strong>
+                <div class="">Studio+, 1+ ba</div>
+                <div class="">581+ sqft</div>
+              </div>
+            </div>
+          </div>
+          <div class="info-window-caretz" style="left: 65px;"></div>
+        </div>
+      </div> -->
   </div><!-- create-->
 
 </div>

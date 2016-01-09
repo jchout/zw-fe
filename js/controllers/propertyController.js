@@ -276,7 +276,8 @@
 		vm.showDetails = function showDetails(evt, property) {
 			// $scope.info = property;
 			vm.info = property;
-			$scope.map.showInfoWindow('iwb', property._id);
+			console.log($scope.map);
+			$scope.map.showInfoWindow('iw-' + property._id, property._id);
 		};
 	}]);
 })();
