@@ -35,7 +35,7 @@
 
 		$routeProvider.when('/add/property',{
 			templateUrl: 'partials/property-form.view.html',
-			controller: "propertyController"
+			// controller: "propertyController"
 		});
 
 		$routeProvider.when('/auth',{

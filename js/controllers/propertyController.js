@@ -25,7 +25,6 @@
 	});
 	app.controller('propertyController', ['$http', '$scope', '$location', '$routeParams', '$translate', 'NgMap', function(
 		$http, $scope, $location, $routeParams, $translate, NgMap){
-			console.log('C: ', +new Date());
 			$customSlider = $('.multiple-items');
 			setTimeout(function(){
 				$customSlider.slick({
@@ -58,6 +57,7 @@
 			}, 0);
 		var vm = this;
 		vm.API_URL = window.API_URL;
+		vm._centerAddress = '30B avenue du Louvre, 78000, Versailles';
 		NgMap.getMap().then(function(map) {
 	    vm.map = map;
 	  });
@@ -66,7 +66,7 @@
 			'address' : {
 				'street1': '',
 				'city' : '',
-				'country' : '',
+				'country' : 'FR',
 				'state' : '',
 				'zipCode' : '',
 				'coordinates' : []
@@ -162,14 +162,14 @@
 		}
 
 		scope.addProperty = function(property) {
-			$('#submit-create-property').attr('ng-disabled', true).val('Please wait..');
+			// $('#submit-create-property').attr('ng-disabled', true).val('Please wait..');
+			console.log(property);
 			var fileList = document.getElementById('upload-photos').files;
 			findCoords(property, function(err, coords) {
 				if (err) {
 					// Show error.
 					return alert(err.message);
 				}
-				console.log(arguments);
 				property.address.coordinates = coords;
 
 				convertToBase64(fileList, function convertedCallback(err, images) {
@@ -302,6 +302,18 @@
 			}, function(error) {
 				console.log(error);
 			});
+		};
+
+		// UPDATE the map view when each field changes.
+		vm._updateMap = function _updateMap() {
+			// prepare address.
+			var address = [
+				vm.property.address.street1,
+				vm.property.address.zipCode,
+				vm.property.address.city,
+				'France'
+			].filter(Boolean).join(', ');
+			vm._centerAddress = address;
 		};
 
 		vm.showDetails = function showDetails(evt, property) {

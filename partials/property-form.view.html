@@ -1,11 +1,11 @@
-<div class="main-detail-wrapper padding-top-thirty">
+<div class="main-detail-wrapper padding-top-thirty" ng-controller="propertyController as vm">
 		<div class="container">
 				<div class="owner">
 						<h1>For Sale By Owner Listing</h1>
 						<h3>1 Microsoft Way # 4642, Redmond, WA 98052</h3>
 				</div><!-- /. owner ends here-->
 				<hr class="hr" />
-				<form>
+				<form name="userForm" ng-submit="vm.addProperty(vm.property)" novalidate>
 				<div class="set-price">
 						<h2 class="h2">Set your price</h2>
 						<div class="row">
@@ -13,13 +13,14 @@
 										<div class="col-sm-7 pad-left-remove add-on-setting">
 												<div class="input-group">
 														<div class="input-group-addon">€</div>
-														<input type="number" ng-model="propertyCtrl.property.estimates.price" class="form-control" placeholder="">
+														<input type="number" ng-model="vm.property.estimates.price" class="form-control" placeholder="">
 												</div> <!-- /.input group ends here -->
 										</div><!-- /. add-on-setting ends here -->
 								</div><!--  /.col-sm-6 ends here -->
 
 								<div class="col-sm-6">
-										<img src="images/map.jpg" alt="">
+										<ng-map zoom="14" center="{{vm._centerAddress}}" style="width: 600px; height: 109px;">
+										</ng-map>
 										<p class="top-botom-spacing">
 												<a onclick="$('#address-toggle').slideToggle();">Edit location on the map</a>
 										</p>
@@ -27,29 +28,24 @@
 						</div><!--  /.row with heading map ends here -->
 						<div class="row" id="address-toggle" style="display: none;">
 							<div class="col-lg-12">
+								<div class="form-group">
+										<label>Street</label>
+										<input ng-blur="vm._updateMap();" ng-model="vm.property.address.street1" class="form-control"
+											placeholder="Street"/>
+								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
-											<label>Street</label>
-											<input ng-model="propertyCtrl.property.address.street1" class="form-control"
-												placeholder="Street"/>
-									</div>
-									<div class="form-group">
 										<label >Postal Code</label>
-										<input ng-model="propertyCtrl.property.address.zipCode" class="form-control"
+										<input ng-blur="vm._updateMap();" ng-model="vm.property.address.zipCode" class="form-control"
 										placeholder="Zip Code" required/>
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
+
 										<label >City</label>
-										<input ng-model="propertyCtrl.property.address.city" class="form-control"
+										<input ng-blur="vm._updateMap();" ng-model="vm.property.address.city" class="form-control"
 										placeholder="City" required/>
-									</div>
-									<div class="form-group">
-										<label >Country</label>
-										<select ng-model="propertyCtrl.property.address.country" class="form-control">
-											<option selected value="FR">France</option>
-										</select>
 									</div>
 								</div>
 							</div>
@@ -67,7 +63,7 @@
 						<div class="col-sm-4 pad-left-remove">
 								<div class="fileUpload btn btn-primary">
 										<span>Upload</span>
-										<input type="file" class="upload" />
+										<input id="upload-photos" type="file" class="upload" />
 								</div><!-- /. fileupload ends here -->
 						</div><!-- /. col-sm-4 ends here -->
 				</div><!-- /. row ends here -->
@@ -94,7 +90,7 @@
 
 								<div class="form-group">
 										<label for="exampleInputEmail1">Home type</label>
-										<select ng-model="propertyCtrl.property.type" class="form-control">
+										<select ng-model="vm.property.type" class="form-control">
 											<option translate value="LOFT">LOFT</option>
 											<option translate value="BUILDING">BUILDING</option>
 											<option translate value="APARTMENT">APARTMENT</option>
@@ -107,7 +103,7 @@
 
 								<div class="form-group">
 										<label for="exampleInputEmail1">Beds</label>
-										<input type="number" ng-model="propertyCtrl.property.general.bedrooms" class="form-control"
+										<input type="number" ng-model="vm.property.general.bedrooms" class="form-control"
 										placeholder="Bedrooms"/>
 
 								</div>
@@ -117,7 +113,7 @@
 
 											<div class="form-group">
 													<label>Bathrooms</label>
-													<input type="number" ng-model="propertyCtrl.property.general.bathrooms" class="form-control" placeholder="Bathrooms"/>
+													<input type="number" ng-model="vm.property.general.bathrooms" class="form-control" placeholder="Bathrooms"/>
 											</div>
 										</div>
 								</div>
@@ -126,7 +122,7 @@
 										<div class="col-sm-12">
 											<div class="form-group">
 													<label for="exampleInputEmail1">Rooms</label>
-													<input type="number" ng-model="propertyCtrl.property.general.rooms" class="form-control"
+													<input type="number" ng-model="vm.property.general.rooms" class="form-control"
 													placeholder="Rooms"/>
 												</div>
 
@@ -192,8 +188,8 @@
 										<div class="col-sm-6">
 
 												<div class="form-group">
-														<label for="exampleInputEmail1">Measure (m2)</label>
-														<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+														<label>Measure (m2)</label>
+														<input ng-model="vm.property.lot.size">
 												</div>
 
 										</div>
@@ -202,7 +198,7 @@
 
 												<div class="form-group">
 													<label>Youtube Video</label><br />
-													<input class="form-control" placeholder="Video (i.e XGSy3_Czz8k) : Should be a Youtube video link." type="text" ng-model="propertyCtrl.property.video" />
+													<input class="form-control" placeholder="Video (i.e XGSy3_Czz8k) : Should be a Youtube video link." type="text" ng-model="vm.property.video" />
 												</div>
 
 
@@ -212,8 +208,8 @@
 
 
 								<div class="form-group">
-										<label for="exampleInputEmail1">Describe your home</label>
-										<textarea class="form-control" rows="4"></textarea>
+										<label>Describe your home</label>
+										<textarea ng-model="vm.property.description" class="form-control" rows="4"></textarea>
 								</div>
 
 
@@ -229,13 +225,13 @@
 								<div class="row">
 										<div class="col-sm-6">
 												<div class="checkbox">
-														<input ng-model="propertyCtrl.property.equipments.fireplace" type="checkbox" />
+														<input ng-model="vm.property.equipments.fireplace" type="checkbox" />
 														<label>Firepalce</label>
 												</div>
 
 
 												<div class="checkbox">
-													<input ng-model="propertyCtrl.property.equipments.swimming_pool" type="checkbox" />
+													<input ng-model="vm.property.equipments.swimming_pool" type="checkbox" />
 													<label>Swimming Pool</label>
 												</div>
 
@@ -247,29 +243,29 @@
 										<div class="col-sm-6">
 
 												<div class="checkbox">
-														<input ng-model="propertyCtrl.property.additional_areas.garden_courtyard" type="checkbox" />
+														<input ng-model="vm.property.additional_areas.garden_courtyard" type="checkbox" />
 														<label>Garden and/or Courtyard</label>
 												</div>
 
 												<div class="checkbox">
-														<input ng-model="propertyCtrl.property.additional_areas.terrace" type="checkbox" />
+														<input ng-model="vm.property.additional_areas.terrace" type="checkbox" />
 														<label>Balcony / Terrace</label>
 												</div>
 
 												<div class="checkbox">
-														<input ng-model="propertyCtrl.property.additional_areas.garage" type="checkbox" />
+														<input ng-model="vm.property.additional_areas.garage" type="checkbox" />
 														<label>Garage</label>
 												</div>
 
 
 												<div class="checkbox">
-														<input ng-model="propertyCtrl.property.additional_areas.cellar" type="checkbox" />
+														<input ng-model="vm.property.additional_areas.cellar" type="checkbox" />
 														<label>Cellar</label>
 												</div>
 
 
 												<div class="checkbox">
-														<input ng-model="propertyCtrl.property.additional_areas.dependency" type="checkbox" />
+														<input ng-model="vm.property.additional_areas.dependency" type="checkbox" />
 														<label>Dependency</label>
 												</div>
 
@@ -294,13 +290,13 @@
 						<div class="col-sm-5">
 								<div class="form-group">
 										<label >Email</label>
-										<input type="email" ng-model="propertyCtrl.property.createdBy.email" class="form-control"
+										<input type="email" ng-model="vm.property.createdBy.email" class="form-control"
 											placeholder="Email" required/>
 								</div>
 
 								<div class="form-group">
 										<label >Password</label>
-										<input type="password" ng-model="propertyCtrl.property.createdBy.password" class="form-control"
+										<input type="password" ng-model="vm.property.createdBy.password" class="form-control"
 										placeholder="Password" required/>
 								</div>
 
@@ -319,7 +315,7 @@
 						</label>
 				</div>
 
-				<button type="submit" class="btn btn-primary">Post for sale by owner</button>
+				<input id="submit-create-property" type="submit" class="btn btn-primary pull-right" style="margin-right: 10px;" value="Post for sale by owner" />
 			</form>
 		</div><!-- /. container // -->
 </div><!-- /. main detail wrapper // -->
