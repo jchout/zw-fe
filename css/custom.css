@@ -686,3 +686,131 @@ label{
   .radio.radio-inline {
     margin-top: 0; }
 
+.glyphicon-open-close .glyphicon-menu-down{
+  display: none;
+}
+.glyphicon-open-close.collapsed .glyphicon-menu-up{
+  display: none;
+}
+.glyphicon-open-close.collapsed .glyphicon-menu-down{
+  display: inline-block;
+}
+.glyphicon-open-close h5
+{
+      color: #333;
+      margin: 0;
+}
+.glyphicon-open-close:hover h5
+{
+  color: #7BC0FF;
+}
+.glyphicon-open-close:hover,
+.glyphicon-open-close:focus
+{
+  text-decoration: none;
+}
+.glyphicon-open-close .glyphicon
+{
+  font-size: 18px;
+}
+.glyphicon-open-close{
+  margin: 10px 0;
+}
+
+.slick-slider{
+  height: 416px;
+  overflow: hidden;
+}
+.first-image.slick-slide{
+  width: 548px;
+  height: 416px;
+}
+.first-image.slick-slide img{
+  height: 416px; 
+}
+.slick-slide{
+  width: 280px;
+  height: 208px;
+  margin: 1px;
+}
+.slick-slide a{
+  min-height: 208px;
+  display: block;
+}
+.slick-slide img
+{
+  margin: 2px 0;
+  width: 100%;
+  display: block;
+  height: 208px;
+}
+.slick-arrow{
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  text-indent: -99999px;
+  width: 33px;
+  top: 50%;
+  height: 48px;
+  z-index: 100;
+  opacity: 0.5;
+
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.slick-arrow:hover{
+  opacity: 1;
+}
+.slick-prev{
+  left: 2%;
+  background: url(../images/slider-left.jpg) no-repeat;
+}
+.slick-next{
+  right: 2%;
+  background: url(../images/slider-right.jpg) no-repeat;
+}
+.custom-lightbox .modal-buttons .btn{
+  background: #777;
+    color: #fff;
+    margin: 0;
+    padding: .4em .67em;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 14px;
+    opacity: 1;
+    font-weight: 400;
+    text-shadow: none;
+    float: none;
+    border: 0;
+}
+.custom-lightbox .modal-title
+{
+  padding: 10px;
+    max-width: 480px;
+    line-height: 36px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #fff;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+.custom-lightbox .modal-content{
+    background: transparent;
+        -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+.custom-lightbox .modal-header{
+  border: 0;
+}
+@media (min-width: 960px){
+  .custom-lightbox .modal-dialog{
+    width: auto;
+  }
+  .custom-lightbox .modal-dialog img{
+    width: 50%;
+    height: 50%;
+  }
+}

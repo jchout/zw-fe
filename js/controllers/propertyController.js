@@ -25,6 +25,37 @@
 	});
 	app.controller('propertyController', ['$http', '$scope', '$location', '$routeParams', '$translate', 'NgMap', function(
 		$http, $scope, $location, $routeParams, $translate, NgMap){
+			console.log('C: ', +new Date());
+			$customSlider = $('.multiple-items');
+			setTimeout(function(){
+				$customSlider.slick({
+	            infinite: false,
+	            arrows: true,
+	            infinite: true,
+	            variableWidth: true,
+	            adaptiveHeight: true,
+	            responsive: [
+	              {
+	                breakpoint: 768,
+	                settings: {
+	                  arrows: false,
+	                  centerMode: true,
+	                  centerPadding: '40px',
+	                  slidesToShow: 3
+	              }
+	              },
+	              {
+	                breakpoint: 480,
+	                settings: {
+	                  arrows: false,
+	                  centerMode: true,
+	                  centerPadding: '40px',
+	                  slidesToShow: 1
+	                }
+	              }
+	            ]
+	      });
+			}, 0);
 		var vm = this;
 		vm.API_URL = window.API_URL;
 		NgMap.getMap().then(function(map) {

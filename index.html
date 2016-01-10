@@ -19,6 +19,16 @@
     <link href="css/custom.css" rel="stylesheet">
 
     <link href="css/bootstrap-tagsinput.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootsrap-image-gallery-min.css">
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
+
+
     <script type="text/javascript">
       // window.API_URL = 'http://172.17.0.1:9999';
       window.API_URL = 'http://52.29.132.129/api';
@@ -257,6 +267,46 @@
 <script type="text/javascript" src="js/controllers/propertyController.js"></script>
 <script type="text/javascript" src="js/controllers/UserController.js"></script>
 
+
+<!-- scripts for the slider and lightbox  -->
+<script src="https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="js/bootstrap-image-gallery.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('.multiple-items').slick({
+        infinite: false,
+        arrows: true,
+        infinite: true,
+        variableWidth: true,
+        adaptiveHeight: true,
+        responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 3
+        }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+    }
+}
+]
+});
+
+  });
+</script>
 </body>
 
 </html>
