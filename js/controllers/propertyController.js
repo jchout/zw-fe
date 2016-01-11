@@ -1,6 +1,17 @@
 (function() {
 
 	var app = angular.module('property-module', ['ngMap', 'youtube-embed', 'pascalprecht.translate']);
+	app.factory('PropertyForm', function () {
+		var property;
+		return {
+			set: function set(value) {
+				property = value;
+			},
+			get: function get() {
+				return property;
+			}
+		}
+	});
 
 	app.config(function($translateProvider) {
 		$translateProvider.translations('en',{
@@ -23,8 +34,8 @@
 
 		$translateProvider.useSanitizeValueStrategy('sanitize');
 	});
-	app.controller('propertyController', ['$http', '$scope', '$location', '$routeParams', '$translate', 'NgMap', function(
-		$http, $scope, $location, $routeParams, $translate, NgMap){
+	app.controller('propertyController', ['$http', '$scope', '$location', '$routeParams', '$translate', 'NgMap', 'PropertyForm', function(
+		$http, $scope, $location, $routeParams, $translate, NgMap, PropertyForm){
 			$customSlider = $('.multiple-items');
 			setTimeout(function(){
 				$customSlider.slick({
@@ -62,7 +73,7 @@
 	    vm.map = map;
 	  });
 		var scope = this;
-		scope.property = {
+		scope.property = PropertyForm.get() || {
 			'address' : {
 				'street1': '',
 				'city' : '',
@@ -76,10 +87,10 @@
 			'createdBy': {}
 		};
 		$scope.properties = [];
-		$scope.property = {};
+
+		console.log(vm.property);
 
 		scope.authenticate = function authenticate() {
-			console.log(scope.auth);
 			$http({
 				method: 'POST',
 				url: API_URL + '/users/auth',
@@ -314,6 +325,12 @@
 				'France'
 			].filter(Boolean).join(', ');
 			vm._centerAddress = address;
+		};
+
+		vm._saveStateAndNext = function _saveStateAndNext() {
+			PropertyForm.set(vm.property);
+			$location.path('/add/property');
+			vm._updateMap();
 		};
 
 		vm.showDetails = function showDetails(evt, property) {

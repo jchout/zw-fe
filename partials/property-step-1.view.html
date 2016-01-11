@@ -1,0 +1,46 @@
+<div class="container" ng-controller="propertyController as vm">
+<!-- details page searching engine main starts here  -->
+    <div class="main-search-form step-a">
+        <div class="step-body">
+            <h1>Post a For Sale by Owner Listing</h1>
+            <form ng-submit="vm._saveStateAndNext();" class="form-inline custom-search right-border gutter-space-reduce">
+                <div class="sale-options">
+                    <a href="javascript:;" class="active">For Sale by Owner</a>
+                    <!-- <a href="javascript:;" class="make-me-move">Make Me Move</a> -->
+                </div>
+                <div class="form-group col-sm-5 gutter-left-remove">
+                    <input type="text" class="form-control" ng-model="vm.property.address.street1" placeholder="">
+                </div>
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control" ng-model="vm.property.address.zipCode" placeholder="ex: Postal Code">
+                </div>
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control" ng-model="vm.property.address.city" placeholder="ex: City">
+                </div>
+                <div class="col-sm-4 display-none toggler">
+                    <h5>Alert potential buyers that you are interested in selling without officially putting your home on the market</h5>
+                </div>
+                <div class="form-group col-sm-2">
+                  <input type="text" class="form-control" ng-model="vm.property.address.state" placeholder="State">
+                </div>
+                <button type="submit" class="btn btn-success">Continue</button>
+            </form>
+        </div>
+    </div>
+    <div class="step-a-footer">
+            <ul>
+                <li>Other Posting Options:</li>
+                <li>
+                    <a href="">Coming Soon</a>
+                </li>
+                <li>
+                    <a href="">For Rent</a>
+                </li>
+                <li>
+                    <a href="">For Sale by Agent</a>
+                </li>
+            </ul>
+        </div>
+    <!-- ./details page searching engine main ends here  -->
+
+</div> <!-- /. container ends here -->

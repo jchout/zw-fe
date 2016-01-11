@@ -29,8 +29,8 @@
 		});
 
 		$routeProvider.when('/add',{
-			templateUrl: 'partials/property-create.view.html',
-			controller: "propertyController"
+			templateUrl: 'partials/property-step-1.view.html',
+			// controller: "propertyController"
 		});
 
 		$routeProvider.when('/add/property',{
