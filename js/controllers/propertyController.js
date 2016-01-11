@@ -88,7 +88,6 @@
 		};
 		$scope.properties = [];
 
-		console.log(vm.property);
 
 		scope.authenticate = function authenticate() {
 			$http({
@@ -120,7 +119,6 @@
 			scope.positions.push({lat:place.lat(), lng: place.lng()});
 			scope.property.address.coordinates.push(place.lat());
 			scope.property.address.coordinates.push(place.lng());
-			console.log(scope.property.address.coordinates);
 		}
 
 		scope.deleteMarkers = function() {
@@ -162,7 +160,6 @@
 				property.address.city,
 				property.address.state,
 				property.address.country].filter(Boolean).join(',');
-			console.log(addr);
 			$.get('http://maps.google.com/maps/api/geocode/json?address=' + addr + '&sensor=false',
 			function( data ) {
 				if (data.status != 'OK') return callback(new Error('We cannot find the coordinates of the location.'));
@@ -174,7 +171,6 @@
 
 		scope.addProperty = function(property) {
 			// $('#submit-create-property').attr('ng-disabled', true).val('Please wait..');
-			console.log(property);
 			var fileList = document.getElementById('upload-photos').files;
 			findCoords(property, function(err, coords) {
 				if (err) {

@@ -10,7 +10,27 @@
         </marker>
         <info-window id="iwb" >
           <div ng-non-bindable>
-            <div class="info-window-body">
+            <!-- <div class="info-window">
+              <div class="info-window-inner"> -->
+                <div class="info-window-body">
+                  <div class="info-window-header">
+                    <img ng-if="!vm.info.photos[0]" style="width: 300px; height: 200px;" src="http://listing99.com/images/deals/img_not_found.gif" />
+                    <a href="/#/property/{{vm.info._id}}">
+                      <img ng-if="vm.info.photos[0]" style="width: 300px; height: 200px;" ng-src="{{vm.API_URL}}/r/{{vm.info.photos[0]}}">
+                    </a>
+                  </div>
+                  <div class="info-window-footer">
+                    <div>
+                      <strong>€{{vm.info.estimates.price | currency: ''}}/mo</strong>
+                      <span class=""><span translate>{{vm.info.type}}</span>, {{vm.info.general.bedrooms}} ch</span>
+                      <span class="">{{vm.info.lot.size}} m2</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-window-caretz" style="left: 65px;"></div>
+              <!-- </div>
+            </div> -->
+            <!-- <div class="info-window-body">
               <div class="info-window-header">
                 <img height="46" ng-if="vm.info.photos[0]" width="46" src="{{vm.API_URL}}/r/{{vm.info.photos[0]}}">
                 <img height="46" ng-if="!vm.info.photos[0]" width="46" src="http://photos3.zillowstatic.com/p_a/IS99pyt3qmrfw00000000000.jpg">
@@ -23,27 +43,10 @@
                   <div class=""><a href="/#/property/{{vm.info._id}}">voir</a></div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </info-window>
       </ng-map>
-      <!-- <div class="info-window">
-        <div class="info-window-inner">
-          <div class="info-window-body">
-            <div class="info-window-header">
-              <img height="46" width="46" src="http://photos3.zillowstatic.com/p_a/IS99pyt3qmrfw00000000000.jpg">
-            </div>
-            <div class="info-window-footer">
-              <div>
-                <strong>$1,513+/mo</strong>
-                <div class="">Studio+, 1+ ba</div>
-                <div class="">581+ sqft</div>
-              </div>
-            </div>
-          </div>
-          <div class="info-window-caretz" style="left: 65px;"></div>
-        </div>
-      </div> -->
   </div><!-- create-->
 
 </div>
