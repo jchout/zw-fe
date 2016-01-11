@@ -38,6 +38,7 @@
 		$http, $scope, $location, $routeParams, $translate, NgMap, PropertyForm){
 			$customSlider = $('.multiple-items');
 			setTimeout(function(){
+				$('#ytplayer').height($(document).height());
 				$customSlider.slick({
 	            infinite: false,
 	            arrows: true,
