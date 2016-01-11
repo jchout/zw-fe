@@ -308,13 +308,8 @@
 		// UPDATE the map view when each field changes.
 		vm._updateMap = function _updateMap() {
 			// prepare address.
-			var address = [
-				vm.property.address.street1,
-				vm.property.address.zipCode,
-				vm.property.address.city,
-				'France'
-			].filter(Boolean).join(', ');
-			vm._centerAddress = address;
+
+			vm._centerAddress = vm.toAddress();
 		};
 
 		vm._saveStateAndNext = function _saveStateAndNext() {
@@ -328,5 +323,15 @@
 			$scope.map.showInfoWindow('iwb', 'm-' + property._id);
 			// $scope.map.showInfoWindow(evt.screenPoint, 'iw-' + property._id, property._id);
 		};
+
+		vm.toAddress = function toAddress() {
+			var address = [
+				vm.property.address.street1,
+				vm.property.address.zipCode,
+				vm.property.address.city,
+				'France'
+			].filter(Boolean).join(', ');
+			return address;
+		}
 	}]);
 })();
