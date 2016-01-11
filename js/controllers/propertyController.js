@@ -24,7 +24,7 @@
 		});
 
 		$translateProvider.translations('fr',{
-			'APARTMENT': 'APppartement',
+			'APARTMENT': 'Appartement',
 			'HOUSE': 'Maison',
 			'BUILDING': 'Immeuble',
 			'LOFT': 'Loft',
