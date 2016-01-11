@@ -224,6 +224,7 @@
 									if (err) {
 										// Something went wrong to upload photo.
 										console.log('> E: ', arguments);
+										$location.path('/property/' + body._id);
 										return false;
 									}
 
@@ -273,13 +274,6 @@
 					console.log(record.address.coordinates);
 					record.address.lat = record.address.coordinates[0];
 					record.address.lng = record.address.coordinates[1];
-					record._options = {
-						labelContent : '<br />120',
-						labelAnchor: "36 61",
-						labelClass: 'labelClass',
-						// labelStyle: newstyle,
-						labelInBackground: false
-					};
 					return record;
 				});
 
